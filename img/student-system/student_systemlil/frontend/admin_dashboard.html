@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+<style>
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:20px;
+}
+h2{
+    color:#333;
+}
+.navbar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:25px;
+}
+.navbar a{
+    background:linear-gradient(135deg,#007bff,#0056b3);
+    color:white;
+    padding:12px 18px;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+    transition:0.3s;
+}
+.navbar a:hover{
+    background:linear-gradient(135deg,#0056b3,#003f7f);
+    transform:translateY(-2px);
+}
+.card{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom:25px;
+}
+.filter-box{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-bottom:15px;
+}
+select, button{
+    padding:10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+button{
+    background:#28a745;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+}
+button:hover{
+    background:#1e7e34;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+th{
+    background:#007bff;
+    color:white;
+    padding:10px;
+}
+td{
+    padding:8px;
+    border-bottom:1px solid #ddd;
+}
+tr:hover{
+    background:#f1f1f1;
+}
+.badge{
+    background:#6c757d;
+    color:white;
+    padding:5px 8px;
+    border-radius:4px;
+    font-size:12px;
+}
+</style>
+</head>
+<body>
+
+<h2>📊 Registration Officer (Admin) Dashboard</h2>
+
+<!-- ================= NAVIGATION ================= -->
+<div class="navbar">
+    <a href="#">➕ Register Student</a>
+    <a href="#">👨‍🎓 View Students</a>
+    <a href="#">➕ Register Lecturer</a>
+    <a href="#">👨‍🏫 View Lecturers</a>
+    <a href="#">🔗 Assign Students</a>
+    <a href="#" style="background:#dc3545;">🚪 Logout</a>
+</div>
+
+<!-- ================= FILTER RESULTS ================= -->
+<div class="card">
+<h3>🎯 Filter Uploaded Results By Program</h3>
+<form class="filter-box">
+    <select name="program">
+        <option value="">-- Select Program --</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Software Engineering">Software Engineering</option>
+    </select>
+    <button type="submit">View Uploaded Results</button>
+</form>
+</div>
+
+<!-- ================= RESULTS TABLE ================= -->
+<div class="card">  <!-- TABLE IMEBANWA KAMILI NDANI YA CARD -->
+<h3>📄 Uploaded Results</h3>
+<table>
+<tr>
+    <th>Student</th>
+    <th>Program</th>
+    <th>Course</th>
+    <th>Marks</th>
+    <th>Uploaded At</th>
+</tr>
+
+<tr>
+    <td>anna mwinuka</td>
+    <td><span class="badge">Computer Science</span></td>
+    <td>Web Development</td>
+    <td>85</td>
+    <td>2026-02-16 10:45</td>
+</tr>
+<tr>
+    <td>devotha ally</td>
+    <td><span class="badge">Information Technology</span></td>
+    <td>Database Systems</td>
+    <td>90</td>
+    <td>2026-02-16 11:00</td>
+</tr>
+<tr>
+    <td>lidya braison</td>
+    <td><span class="badge">Software Engineering</span></td>
+    <td>Software Design</td>
+    <td>78</td>
+    <td>2026-02-16 09:30</td>
+</tr>
+
+<tr>
+    <td colspan="5" style="text-align:center;color:red;">
+        No more results found for selected program
+    </td>
+</tr>
+
+</table>
+</div> <!-- END OF CARD -->
+
+</body>
+</html>

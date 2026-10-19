@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lecturer Dashboard</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    padding: 20px;
+}
+
+h2, h3 { color: #002666; margin-bottom: 15px; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background: #002666;
+    color: #fff;
+}
+
+tr:nth-child(even) { background: #E0EBFF; }
+tr:hover { background: #cce0ff; }
+
+input[type="text"], input[type="number"] {
+    padding: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #002666;
+    color: #fff;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover { background: #0047b3; }
+
+a {
+    text-decoration: none;
+    color: #002666;
+    font-weight: bold;
+}
+
+a:hover { color: #0047b3; }
+</style>
+</head>
+<body>
+
+<h2>Lecturer Dashboard</h2>
+
+<form method="POST" action="upload_results.php">
+<h3>Upload New Results</h3>
+<table>
+<tr>
+<th>Registration No</th>
+<th>Name</th>
+<th>Course</th>
+<th>Marks</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>REG001</td>
+<td>lilian konga</td>
+<td><input type="text" name="course[REG001]" placeholder="Course" required></td>
+<td><input type="number" name="marks[REG001]" placeholder="Marks" min="0" max="100" required></td>
+<td><button name="upload_single" value="REG001">Upload</button></td>
+</tr>
+<tr>
+<td>REG002</td>
+<td>jenipher john</td>
+<td><input type="text" name="course[REG002]" placeholder="Course" required></td>
+<td><input type="number" name="marks[REG002]" placeholder="Marks" min="0" max="100" required></td>
+<td><button name="upload_single" value="REG002">Upload</button></td>
+</tr>
+<tr>
+<td>REG003</td>
+<td>ibrahim kassian</td>
+<td><input type="text" name="course[REG003]" placeholder="Course" required></td>
+<td><input type="number" name="marks[REG003]" placeholder="Marks" min="0" max="100" required></td>
+<td><button name="upload_single" value="REG003">Upload</button></td>
+</tr>
+</table>
+
+<br>
+<button name="upload_all">Upload All Results</button>
+</form>
+
+<h3>Previously Uploaded Results</h3>
+<table>
+<tr>
+<th>Student Reg No</th>
+<th>Student Name</th>
+<th>Course</th>
+<th>Marks</th>
+<th>Credits</th>
+<th>Grade Point</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>REG001</td>
+<td>lidya braison</td>
+<td>Introduction to Programming</td>
+<td>75</td>
+<td>3</td>
+<td>5.0</td>
+<td>
+<a href="edit_result.php?id=1">Edit</a> | 
+<a href="delete_result.php?id=1" onclick="return confirm('Are you sure?')">Delete</a>
+</td>
+</tr>
+<tr>
+<td>REG002</td>
+<td>devotha ally</td>
+<td>Data Structures</td>
+<td>62</td>
+<td>4</td>
+<td>4.0</td>
+<td>
+<a href="edit_result.php?id=2">Edit</a> | 
+<a href="delete_result.php?id=2" onclick="return confirm('Are you sure?')">Delete</a>
+</td>
+</tr>
+<tr>
+<td>REG003</td>
+<td>anna mwinuka</td>
+<td>Database Systems</td>
+<td>55</td>
+<td>3</td>
+<td>3.0</td>
+<td>
+<a href="edit_result.php?id=3">Edit</a> | 
+<a href="delete_result.php?id=3" onclick="return confirm('Are you sure?')">Delete</a>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

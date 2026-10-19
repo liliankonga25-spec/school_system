@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register Student</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.card {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    width: 450px;
+}
+.card h2 {
+    color: #002666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+input[type="text"], input[type="number"], input[type="password"], select, input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background: #002666;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+button:hover { background: #0047b3; }
+.success {
+    background: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+
+<form class="card" enctype="multipart/form-data">
+<h2>Student Registration</h2>
+
+<p class='success'>Student Registered Successfully</p>
+
+<input type="text" name="fullname" placeholder="Full Name" required>
+
+<select name="gender" required>
+    <option value="">-- Select Gender --</option>
+    <option>Male</option>
+    <option>Female</option>
+</select>
+
+<select name="level" required>
+    <option value="">-- Select Level --</option>
+    <option value="Undergraduate">Undergraduate</option>
+    <option value="Postgraduate">Postgraduate</option>
+</select>
+
+<select name="sub_level" required>
+    <option value="">-- Select Sub Level --</option>
+    <option>Certificate</option>
+    <option>Diploma</option>
+    <option>Bachelor Degree</option>
+    <option>Postgraduate Diploma</option>
+    <option>Master Degree</option>
+    <option>PhD</option>
+</select>
+
+<select name="program" required>
+    <option value="">-- Select Program --</option>
+    <option>Bachelor of Computer Science</option>
+    <option>Bachelor of Information Technology</option>
+    <option>Master of Computer Science</option>
+</select>
+
+<input type="text" name="regno" placeholder="Registration Number (Username)" required>
+
+<input type="password" name="password" placeholder="Set Login Password" required>
+
+<select name="role" required>
+    <option value="">-- Select Role --</option>
+    <option value="student">Student</option>
+    <option value="lecturer">Lecturer</option>
+    <option value="registration_officer">Registration Officer</option>
+</select>
+
+<select name="academic_year" required>
+    <option>2023/2024</option>
+    <option>2024/2025</option>
+    <option>2025/2026</option>
+</select>
+
+<input type="number" name="age" placeholder="Age of Student" required>
+
+<input type="file" name="photo" required>
+
+<button>Register Student</button>
+</form>
+
+</body>
+</html>

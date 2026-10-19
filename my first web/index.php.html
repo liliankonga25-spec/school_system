@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zanzibar Tourism Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Welcome to Zanzibar</h1>
+    </header>
+
+    <nav>
+        <a onclick="switchPage('home')">Home</a>
+        <a onclick="switchPage('destinations')">Destinations</a>
+        <a onclick="switchPage('gallery')">Gallery</a>
+        <a onclick="switchPage('pricing')">Packages</a>
+        <a onclick="switchPage('contact')">Contact</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- 1. HOME SECTION YENYE BACKGROUND SLIDER -->
+        <section id="home" class="section-box active-section hero-slider">
+            <div class="slider-overlay"></div>
+            <div class="slider-content">
+                <div id="typing-text"></div> 
+                <p style="text-align: center;">Discover the magic of the Spice Islands. Explore historic ruins and tropical beaches.</p>
+            </div>
+        </section>
+
+        <section id="destinations" class="section-box">
+            <h2>Top Destinations</h2>
+            <div class="grid" id="dest-list"></div>
+        </section>
+
+        <!-- 2. GALLERY SECTION YENYE PICHA NA VIDEO ZA YOUTUBE -->
+        <section id="gallery" class="section-box">
+            <h2>Photo & Video Gallery</h2>
+            
+            <h3 style="margin-top: 20px; color: #0077b6;">Picha za Vivutio</h3>
+            <div class="grid">
+                <img src="images/gallery1.jpg" style="border-radius: 20px; width: 100%;">
+                <img src="images/gallery2.jpg" style="border-radius: 20px; width: 100%;">
+                <img src="images/gallery3.jpg" style="border-radius: 20px; width: 100%;">
+            </div>
+
+            <h3 style="margin-top: 40px; color: #0077b6;">Video za Matukio</h3>
+            <div class="grid">
+                <!-- Video 1 -->
+                <div class="video-card" style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+                        <iframe src="https://youtube.com/shorts/G6CAbw5_qxk?si=bDMVWLMEKlYJiKYH" title="Stone Town Tour" style="position: absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p style="padding: 10px; font-weight: bold;">Ziara ya Stone Town</p>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-card" style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+                        <iframe src="https://www.youtube.com/embed/WAKATI_WA_ID_YAKO_2" title="Nungwi Beach" style="position: absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p style="padding: 10px; font-weight: bold;">Fukwe za Nungwi</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section-box">
+            <h2>Package & Cost Estimator</h2>
+            <div style="background: #f1f1f1; padding: 25px; border-radius: 20px;">
+                <label>Select Your Destination:</label>
+                <select id="calcDest" class="form-control" onchange="calculate()">
+                    <option value="0">-- Select --</option>
+                    <option value="250000">Stone Town Tour - Tsh 250,000</option>
+                    <option value="200000">Nungwi Beach Stay - Tsh 200,000</option>
+                    <option value="150000">Jozani Forest Trip - Tsh 150,000</option>
+                </select>
+                <label>Number of People:</label>
+                <input type="number" id="calcPeople" class="form-control" value="1" min="1" oninput="calculate()">
+                <h3>Total Price: <span style="color: var(--primary-accent);">Tsh <span id="totalVal">0</span></span></h3>
+            </div>
+
+            <hr style="margin: 30px 0;">
+            <h3>Create Booking Account</h3>
+            <form onsubmit="handleAuth(event)">
+                <input type="email" placeholder="Email" class="form-control" required>
+                <input type="password" placeholder="Password" class="form-control" onkeyup="checkStrength(this.value)">
+                <span id="password-strength"></span>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section id="contact" class="section-box">
+            <div class="contact-container">
+                <div>
+                    <h2>Send a Message</h2>
+                    <form onsubmit="handleAuth(event)">
+                        <input type="text" placeholder="Your Name" class="form-control" required>
+                        <textarea placeholder="Message" class="form-control" rows="4"></textarea>
+                        <button type="submit">Send Email</button>
+                    </form>
+                </div>
+                <div class="social-links">
+                    <h2>Call to Action</h2>
+                    <p><strong>Phone:</strong> +255 740 434 066</p>
+                    <p><strong>Follow Us:</strong></p>
+                    <a href="#">Instagram  group4official tour Zanzibar</a>
+                    <a href="#">Facebook Zanzibargroup4</a>
+                    <a href="#">TikTok @group4zanzibartour</a>
+                    <a href="#">Twitter (X) Zanzibargroup4</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="theme-btn" onclick="toggleDark()">🌓</div>
+
+      <script src="javascript/script.js"></script>
+</body>
+</html>
+

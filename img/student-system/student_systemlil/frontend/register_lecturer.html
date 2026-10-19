@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register Lecturer</title>
+<style>
+body {
+    background: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+.card {
+    width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+h2 {
+    text-align: center;
+    color: #002666;
+    margin-bottom: 20px;
+}
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    background: #0056b3;
+}
+.success {
+    text-align: center;
+    color: green;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+
+<form enctype="multipart/form-data" class="card">
+<h2>Register Lecturer</h2>
+
+<p class="success">Lecturer Registered Successfully</p>
+
+<input name="fullname" placeholder="Lecturer Full Name (Username)" required>
+
+<input name="phone" placeholder="Phone Number" required>
+
+<select name="role" required>
+    <option value="">-- Select Role --</option>
+    <option value="lecturer">Lecturer</option>
+    <option value="registration_officer">Registration Officer</option>
+    <option value="admin">Admin</option>
+</select>
+
+<input type="password" name="password" placeholder="Login Password" required>
+
+<input type="file" name="photo" required>
+
+<button>Register Lecturer</button>
+</form>
+
+</body>
+</html>

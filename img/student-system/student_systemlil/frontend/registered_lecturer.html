@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Manage Lecturers</title>
+<style>
+body{
+    font-family:Arial;
+    background:#f0f2f5;
+    padding:20px;
+}
+h2{
+    text-align:center;
+    color:#002666;
+    margin-bottom:20px;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+th,td{
+    padding:10px;
+    text-align:center;
+    border:1px solid #ccc;
+}
+th{
+    background:#002666;
+    color:white;
+}
+tr:nth-child(even){
+    background:#f9f9f9;
+}
+tr:hover{
+    background:#e0ebff;
+}
+img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+.btn{
+    padding:6px 10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:13px;
+}
+.btn-delete{
+    background:#dc3545;
+    color:white;
+}
+.btn-update{
+    background:#007bff;
+    color:white;
+}
+.btn-upload{
+    background:#28a745;
+    color:white;
+}
+form{
+    margin:4px 0;
+}
+.success{
+    color:green;
+    text-align:center;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+input[type=password], input[type=file]{
+    width:100%;
+    padding:6px;
+    margin-bottom:5px;
+}
+</style>
+</head>
+<body>
+
+<h2>Registered Lecturers</h2>
+
+<p class='success'>Password Updated Successfully!</p>
+
+<table>
+<tr>
+    <th>Username</th>
+    <th>Phone</th>
+    <th>Role</th>
+    <th>Profile Photo</th>
+    <th>Upload Photo</th>
+    <th>Update Password</th>
+    <th>Action</th>
+</tr>
+
+<tr>
+    <td>jdoe</td>
+    <td>0760123456</td>
+    <td>lecturer</td>
+    <td><img src="../uploads/lecturers/jdoe.jpg"></td>
+    <td>
+        <form enctype="multipart/form-data">
+            <input type="file" name="photo" required>
+            <button class="btn btn-upload">Upload</button>
+        </form>
+    </td>
+    <td>
+        <form>
+            <input type="password" name="new_password" placeholder="New Password" required>
+            <button class="btn btn-update">Update</button>
+        </form>
+    </td>
+    <td>
+        <a onclick="return confirm('Delete this lecturer?')">
+            <button class="btn btn-delete">Delete</button>
+        </a>
+    </td>
+</tr>
+
+<tr>
+    <td>asmith</td>
+    <td>0760654321</td>
+    <td>lecturer</td>
+    <td>No Photo</td>
+    <td>
+        <form enctype="multipart/form-data">
+            <input type="file" name="photo" required>
+            <button class="btn btn-upload">Upload</button>
+        </form>
+    </td>
+    <td>
+        <form>
+            <input type="password" name="new_password" placeholder="New Password" required>
+            <button class="btn btn-update">Update</button>
+        </form>
+    </td>
+    <td>
+        <a onclick="return confirm('Delete this lecturer?')">
+            <button class="btn btn-delete">Delete</button>
+        </a>
+    </td>
+</tr>
+
+<tr>
+    <td>mjohnson</td>
+    <td>0760987654</td>
+    <td>lecturer</td>
+    <td><img src="../uploads/lecturers/mjohnson.jpg"></td>
+    <td>
+        <form enctype="multipart/form-data">
+            <input type="file" name="photo" required>
+            <button class="btn btn-upload">Upload</button>
+        </form>
+    </td>
+    <td>
+        <form>
+            <input type="password" name="new_password" placeholder="New Password" required>
+            <button class="btn btn-update">Update</button>
+        </form>
+    </td>
+    <td>
+        <a onclick="return confirm('Delete this lecturer?')">
+            <button class="btn btn-delete">Delete</button>
+        </a>
+    </td>
+</tr>
+
+</table>
+
+</body>
+</html>

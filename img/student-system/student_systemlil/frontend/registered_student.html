@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registered Students</title>
+<style>
+body{font-family:Arial;background:#f0f2f5;padding:20px;}
+h2{text-align:center;color:#002666;}
+.search-box{width:100%;max-width:400px;padding:10px;margin-bottom:10px;border-radius:6px;}
+#studentsTable{width:100%;border-collapse:collapse;}
+#studentsTable th,#studentsTable td{border:1px solid #ccc;padding:8px;text-align:center;}
+#studentsTable th{background:#002666;color:#fff;}
+#studentsTable tr:nth-child(even){background:#f2f2f2;}
+#studentsTable tr:hover{background:#cce0ff;}
+.action-btn{background:#cc0000;color:#fff;padding:5px 8px;border-radius:4px;text-decoration:none;font-size:13px;display:block;margin-bottom:4px;}
+.edit-btn{background:#28a745;}
+.action-btn:hover{opacity:.8;}
+#printTable{display:none;}
+</style>
+</head>
+<body>
+
+<h2>Registered Students</h2>
+
+<input type="text" id="searchInput" class="search-box"
+placeholder="Search by Name, Sub Level or Registration Number">
+
+<br><br>
+
+<label>Select Program to Print:</label>
+<select id="programSelect">
+<option value="">-- All Programs --</option>
+<option value="Computer Science">Computer Science</option>
+<option value="Information Technology">Information Technology</option>
+<option value="Software Engineering">Software Engineering</option>
+</select>
+<button id="printBtn">Print List</button>
+
+<table id="studentsTable">
+<tr>
+<th>Photo</th>
+<th>Full Name</th>
+<th>Reg No</th>
+<th>Password</th>
+<th>Gender</th>
+<th>Level</th>
+<th>Sub Level</th>
+<th>Program</th>
+<th>Academic Year</th>
+<th>Age</th>
+<th>Action</th>
+</tr>
+
+<tr data-program="Computer Science">
+<td><img src="../uploads/students/student1.jpg" width="50"></td>
+<td>John Doe</td>
+<td>CS2026001</td>
+<td>pass123</td>
+<td>Male</td>
+<td>1</td>
+<td>A</td>
+<td>Computer Science</td>
+<td>2025/2026</td>
+<td>20</td>
+<td>
+<a class="action-btn" href="#" onclick="return confirm('Delete this student?')">Delete</a>
+<a class="action-btn edit-btn" href="#">Edit Password</a>
+</td>
+</tr>
+
+<tr data-program="Information Technology">
+<td><img src="../uploads/students/student2.jpg" width="50"></td>
+<td>Jane Smith</td>
+<td>IT2026002</td>
+<td>itpass456</td>
+<td>Female</td>
+<td>1</td>
+<td>B</td>
+<td>Information Technology</td>
+<td>2025/2026</td>
+<td>19</td>
+<td>
+<a class="action-btn" href="#" onclick="return confirm('Delete this student?')">Delete</a>
+<a class="action-btn edit-btn" href="#">Edit Password</a>
+</td>
+</tr>
+
+<tr data-program="Software Engineering">
+<td><img src="../uploads/students/student3.jpg" width="50"></td>
+<td>Mary Johnson</td>
+<td>SE2026003</td>
+<td>sepass789</td>
+<td>Female</td>
+<td>2</td>
+<td>A</td>
+<td>Software Engineering</td>
+<td>2025/2026</td>
+<td>21</td>
+<td>
+<a class="action-btn" href="#" onclick="return confirm('Delete this student?')">Delete</a>
+<a class="action-btn edit-btn" href="#">Edit Password</a>
+</td>
+</tr>
+
+</table>
+
+<!-- PRINT SCRIPT + SEARCH (HAJABADILISHWA) -->
+<script>
+document.getElementById("searchInput").addEventListener("keyup",function(){
+let f=this.value.toLowerCase();
+document.querySelectorAll("#studentsTable tr").forEach((r,i)=>{
+if(i>0) r.style.display=r.innerText.toLowerCase().includes(f)?"":"none";
+});
+});
+
+document.getElementById("printBtn").addEventListener("click",()=>{
+let p=document.getElementById("programSelect").value;
+let rows=document.querySelectorAll("#studentsTable tr[data-program]");
+let html="<table border='1'><tr><th>Name</th><th>Reg</th><th>Program</th></tr>";
+rows.forEach(r=>{
+if(p==""||r.dataset.program==p){
+html+=`<tr><td>${r.cells[1].innerText}</td><td>${r.cells[2].innerText}</td><td>${r.cells[7].innerText}</td></tr>`;
+}});
+html+="</table>";
+let w=window.open();
+w.document.write(html);
+w.print();
+});
+</script>
+
+</body>
+</html>

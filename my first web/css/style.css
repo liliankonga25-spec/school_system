@@ -1,0 +1,231 @@
+.hero-slider {
+    position: relative;
+    transition: background-image 1s ease-in-out;
+    color: #ffffff !important; /* Ili maandishi yawe meupe yaonekane vizuri juu ya picha */
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.hero-slider h1, .hero-slider p {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* 1. Variables & Constants */
+:root {
+    --primary-blue: #0077be;
+    --dark-bg: #121212;
+    --light-bg: #f8f9fa;
+    --text-main: #2d3436;
+    --card-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    --border-radius: 30px;
+}
+
+/* 12. Theme Toggle (Dark Mode Support) */
+.dark-mode {
+    --light-bg: #1e272e;
+    --text-main: #f1f2f6;
+    --card-bg: #2d3436;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: var(--light-bg);
+    color: var(--text-main);
+    transition: 0.4s;
+}
+
+/* Hero Section with Local Background Image */
+.hero {
+    height: 75vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('../images/background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    text align: center;
+    margin: 0;
+    font-family: `segoe UI`,Arial,sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px 2px 2px 8px rgba(0, 0, 0, 0, 0.3);
+}
+
+/* 10. Unique Feature: Interactive Blue Text */
+#typing-text {
+    font-size: 2.8rem;
+    color: var(--primary-blue);
+    font-weight: bold;
+    text-align: center;
+    min-height: 60px;
+    margin: 40px 0;
+}
+
+/* Navigation */
+nav {
+    background: #fff;
+    padding: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* 3. Section Styling (Round Boxes) */
+.section-box {
+    background: white;
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 45px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    display: none; /* Hidden by default for JS navigation */
+}
+
+.active-section {
+    display: block;
+    animation: fadeIn 0.6s ease;
+}
+
+/* Grid for Destinations and Gallery */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Contact Page Split Layout */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.social-links {
+    padding-left: 20px;
+    border-left: 2px solid #eee;
+}
+
+.social-links a {
+    display: block;
+    margin: 15px 0;
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Form Styling */
+.form-control {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px 30px;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #005fa3;
+}
+
+/* Theme Toggle Button */
+.theme-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Fix for Contact */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    .social-links {
+        border-left: none;
+        border-top: 2px solid #eee;
+        padding-top: 20px;
+    }
+}
+

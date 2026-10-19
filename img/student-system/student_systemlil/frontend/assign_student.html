@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assign Students to Lecturers</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    padding: 20px;
+}
+h2 {
+    color: #002666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+select, button, input {
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+button {
+    background: #002666;
+    color: #fff;
+    cursor: pointer;
+}
+button:hover {
+    background: #0056b3;
+}
+#studentsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+#studentsTable th, #studentsTable td {
+    border:1px solid #ccc;
+    padding:8px;
+    text-align:center;
+}
+#studentsTable th {
+    background:#002666;
+    color:#fff;
+}
+#studentsTable tr:nth-child(even){
+    background:#f2f2f2;
+}
+#studentsTable tr:hover{
+    background:#cce0ff;
+}
+.search-box{
+    width:300px;
+    padding:8px;
+    margin-bottom:10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+.action-btn{
+    background:#28a745;
+    color:#fff;
+    padding:5px 10px;
+    border-radius:5px;
+    border:none;
+    cursor:pointer;
+}
+.action-btn:hover{
+    background:#218838;
+}
+</style>
+</head>
+<body>
+
+<h2>Assign Students to Lecturers</h2>
+<div class="card">
+
+<!-- Example Success Message -->
+<p style="color:green;font-weight:bold">Student assigned successfully</p>
+
+<!-- Search by Program -->
+<input type="text" id="searchInput" class="search-box" placeholder="Filter by Program...">
+
+<form>
+<table id="studentsTable">
+<tr>
+    <th>Select Student</th>
+    <th>Full Name</th>
+    <th>Program</th>
+    <th>Level</th>
+    <th>Sub Level</th>
+    <th>Select Lecturer</th>
+    <th>Assign</th>
+</tr>
+
+<!-- Example Row -->
+<tr data-program="Bachelor of Computer Science">
+    <td>
+        <input type="radio" name="student_id" value="1" required>
+    </td>
+    <td>John Doe</td>
+    <td>Bachelor of Computer Science</td>
+    <td>Undergraduate</td>
+    <td>Bachelor Degree</td>
+    <td>
+        <select name="lecturer_id" required>
+            <option value="">Select Lecturer</option>
+            <option value="101">lecturer1</option>
+            <option value="102">lecturer2</option>
+        </select>
+    </td>
+    <td>
+        <button type="submit" name="assign" class="action-btn">Assign</button>
+    </td>
+</tr>
+
+<tr data-program="Bachelor of Information Technology">
+    <td>
+        <input type="radio" name="student_id" value="2" required>
+    </td>
+    <td>Jane Smith</td>
+    <td>Bachelor of Information Technology</td>
+    <td>Undergraduate</td>
+    <td>Bachelor Degree</td>
+    <td>
+        <select name="lecturer_id" required>
+            <option value="">Select Lecturer</option>
+            <option value="101">lecturer1</option>
+            <option value="103">lecturer3</option>
+        </select>
+    </td>
+    <td>
+        <button type="submit" name="assign" class="action-btn">Assign</button>
+    </td>
+</tr>
+
+</table>
+</form>
+</div>
+
+<script>
+// Filter students by program
+document.getElementById("searchInput").addEventListener("keyup", function(){
+    const filter = this.value.toLowerCase();
+    const rows = document.querySelectorAll("#studentsTable tr[data-program]");
+    rows.forEach(r=>{
+        const prog = r.dataset.program.toLowerCase();
+        r.style.display = prog.includes(filter) ? "" : "none";
+    });
+});
+</script>
+
+</body>
+</html>
